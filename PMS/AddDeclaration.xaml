@@ -1,0 +1,43 @@
+﻿<Page
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+	x:Class="PMS.AddDeclaration"
+	x:Name="Page"
+	WindowTitle="Page"
+	FlowDirection="LeftToRight"
+	Width="800" Height="600"
+	WindowWidth="640" WindowHeight="480" Loaded="Page_Loaded" xmlns:my="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit">
+
+	<Grid x:Name="LayoutRoot" Height="600" Width="800" HorizontalAlignment="Left" VerticalAlignment="Top">
+		<Label Content="ADD DECLARATION" Height="40" Margin="38.667,8,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" HorizontalAlignment="Left" Width="250" Background="{x:Null}"/>
+		<Label Content="Exporter" HorizontalAlignment="Left" Height="30" Margin="38.667,84.167,0,0" VerticalAlignment="Top" Width="121" FontSize="14" FontWeight="Normal" />
+		<Label Content="Policy Number" HorizontalAlignment="Left" Height="30" Margin="39,130,0,0" VerticalAlignment="Top" Width="143" FontSize="14"/>
+		<Label Content="Commodity" HorizontalAlignment="Left" Height="30" Margin="39,0,0,401" VerticalAlignment="Bottom" Width="143" FontSize="14"/>
+		<Label Content="Buyer" Height="30" Margin="0,84,249,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="143" d:LayoutOverrides="HorizontalAlignment"/>
+		<Label Content="Term Of Payment" Height="30" Margin="0,130,249,0" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Right" Width="143" d:LayoutOverrides="HorizontalAlignment"/>
+		<Label Content="Country" Height="30" Margin="0,0,249,400" VerticalAlignment="Bottom" FontSize="14" HorizontalAlignment="Right" Width="143" d:LayoutOverrides="HorizontalAlignment"/>
+		<Label Content="Gross Value" HorizontalAlignment="Left" Height="30" Margin="39,267,0,0" VerticalAlignment="Top" Width="143" FontSize="14"/>
+        <Label Content="Credit Duration" HorizontalAlignment="Left" Height="30" Margin="408,0,0,302" VerticalAlignment="Bottom" Width="143" FontSize="14"/>
+        <ComboBox Margin="0,130,93,0" HorizontalAlignment="Right" Width="150" Height="25" VerticalAlignment="Top" TabIndex="4" Name="txtPaymentTerm">
+            <ComboBoxItem Content="Cash" />
+            <ComboBoxItem Content="Cheque" />
+            <ComboBoxItem Content="Pay Order" />
+            <ComboBoxItem Content="Bank Deposit" />
+        </ComboBox>
+        <ComboBox Margin="203,0,0,401" HorizontalAlignment="Left" Width="150" Height="25" VerticalAlignment="Bottom" TabIndex="5" Name="txtCommodity" />
+        <ComboBox Margin="0,0,93,400" HorizontalAlignment="Right" Width="150" Height="25" VerticalAlignment="Bottom" TabIndex="6" Name="txtCountry" />
+		<TextBox HorizontalAlignment="Left" Height="25" Margin="557,0,0,303" TextWrapping="Wrap" Text="" VerticalAlignment="Bottom" Width="150" TabIndex="11" Name="txtCreditDuration" />
+		<TextBox HorizontalAlignment="Left" Height="25" Margin="203,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" TabIndex="9" Name="txtGross" />
+        <Button Content="Add" Height="26" HorizontalAlignment="Right" Margin="0,356,130,0" x:Name="btnAdd" VerticalAlignment="Top" Width="113" TabIndex="12" Click="button2_Click" />
+		<Button Height="25" HorizontalAlignment="Left" Margin="676,356,0,0" x:Name="button1" VerticalAlignment="Top" Width="31" TabIndex="13" Click="button1_Click_1" />
+		<Label Content="Shipment Date" FontSize="14" Height="30" HorizontalAlignment="Left" Margin="39,219,0,0" VerticalAlignment="Top" Width="143" d:LayoutOverrides="VerticalAlignment" />
+		<Label Content="Stamped Date" FontSize="14" Height="30" HorizontalAlignment="Right" Margin="0,219,249,0" VerticalAlignment="Top" Width="143" d:LayoutOverrides="HorizontalAlignment, VerticalAlignment" />
+		<DatePicker Height="25" HorizontalAlignment="Left" Margin="203,219,0,0" VerticalAlignment="Top" Width="150" TabIndex="7" d:LayoutOverrides="VerticalAlignment" Name="dtPickerShpDate" />
+		<DatePicker Height="25" HorizontalAlignment="Right" Margin="0,219,93,0" VerticalAlignment="Top" Width="150" TabIndex="8" d:LayoutOverrides="VerticalAlignment" Name="dtPickerStampDate" />
+        <DataGrid AutoGenerateColumns="True" Height="Auto" HorizontalAlignment="Left" Margin="39,413,0,0" Name="dataGrid1" VerticalAlignment="Top" Width="668" CanUserResizeColumns="False"  ItemsSource="{Binding}" />
+        <my:AutoCompleteBox HorizontalAlignment="Left" Margin="203,85,0,0" Name="txtExporter" VerticalAlignment="Top" Width="150" ItemsSource="{Binding}" />
+        <my:AutoCompleteBox HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="557,85,0,0" Name="txtBuyer" VerticalAlignment="Top" Width="150" />
+        <my:AutoCompleteBox HorizontalAlignment="Left" ItemsSource="{Binding}" Margin="203,131,0,0" Name="txtPolicyNo" VerticalAlignment="Top" Width="150" />
+    </Grid>
+</Page>

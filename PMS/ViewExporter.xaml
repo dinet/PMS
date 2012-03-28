@@ -1,0 +1,15 @@
+﻿<Page x:Class="PMS.ViewExporter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" Title="ViewExporter" xmlns:my="clr-namespace:PMS" Loaded="Page_Loaded" d:DesignHeight="504" d:DesignWidth="1010">
+    <Page.Resources>
+        <CollectionViewSource x:Key="companiesViewSource" d:DesignSource="" />
+        <CollectionViewSource x:Key="companiesDirectorsViewSource" Source="{Binding Path=Directors, Source={StaticResource companiesViewSource}}" />
+    </Page.Resources>
+    <Grid Height="564" Width="1166" DataContext="{StaticResource companiesViewSource}">
+        <Label Height="28" HorizontalAlignment="Left" Margin="38,26,0,0" Name="label1" VerticalAlignment="Top" Width="103" Content="Exporter details" />
+        <DataGrid AutoGenerateColumns="true" Height="214" HorizontalAlignment="Right" Margin="0,60,672,0" Name="dataGrid1" VerticalAlignment="Top" Width="464" SelectionChanged="dataGrid1_SelectionChanged" DataContext="{Binding}" />
+    </Grid>
+</Page>

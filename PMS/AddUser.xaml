@@ -1,0 +1,48 @@
+﻿<Page x:Class="PMS.AddUser"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="965" d:DesignWidth="1190"
+	Title="AddUser">
+
+    <Grid Width="1220" Height="963">
+        <Label Content="First Name" Height="28" HorizontalAlignment="Left" Margin="73,127,0,0" Name="label1" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="Last Name" Height="28" HorizontalAlignment="Left" Margin="73,171,0,0" Name="label2" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="EPF NO *" HorizontalAlignment="Left" Margin="73,88,0,847" Name="label3" />
+        <Label Content="Gender
+" Height="28" HorizontalAlignment="Left" Margin="73,261,0,0" Name="label4" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="Designation" Height="28" HorizontalAlignment="Left" Margin="73,353,0,0" Name="label5" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="Username *" Height="28" HorizontalAlignment="Left" Margin="399,262,0,0" Name="label6" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="Password *" Height="28" HorizontalAlignment="Left" Margin="399,308,0,0" Name="label7" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="Re-Password" Height="28" HorizontalAlignment="Left" Margin="399,355,0,0" Name="label8" VerticalAlignment="Top" FontSize="14" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="176,88,0,0" Name="txtEPFNo" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="176,130,0,0" Name="txtFirstName" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="176,175,0,0" Name="txtLastName" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="176,355,0,0" Name="txtDesignation" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="513,264,0,0" Name="txtUserName" VerticalAlignment="Top" Width="120" />
+        <Button Content="Button" Height="23" HorizontalAlignment="Left" Margin="513,400,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <Label Content="Address" Height="28" HorizontalAlignment="Left" Margin="399,88,0,0" Name="label9" VerticalAlignment="Top" FontSize="14" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="513,88,0,0" Name="txtAddress" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="513,129,0,0" Name="txtMobileNo" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="513,174,0,0" Name="txtLandPhone" VerticalAlignment="Top" Width="120" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="513,222,0,0" Name="txtEmail" VerticalAlignment="Top" Width="120" />
+        <Label Content="Mobile Number" Height="28" HorizontalAlignment="Left" Margin="399,124,0,0" Name="label10" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="Land Phone" Height="28" HorizontalAlignment="Left" Margin="399,171,0,0" Name="label11" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="Email" Height="28" HorizontalAlignment="Left" Margin="399,217,0,0" Name="label12" VerticalAlignment="Top" FontSize="14" />
+        <Label Content="NIC *" Height="28" HorizontalAlignment="Left" Margin="73,217,0,0" Name="label13" VerticalAlignment="Top" FontSize="14" />
+        <TextBox Height="25" HorizontalAlignment="Left" Margin="176,220,0,0" Name="txtNIC" VerticalAlignment="Top" Width="120" />
+        <Label Content="Date of birth" Height="28" HorizontalAlignment="Left" Margin="73,307,0,0" Name="label14" VerticalAlignment="Top" FontSize="14" />
+        <DatePicker Height="25" HorizontalAlignment="Left" Margin="176,310,0,0" Name="dtPickerDateOfBirth" VerticalAlignment="Top" Width="120" />
+        <DataGrid AutoGenerateColumns="True" ItemsSource="{Binding}"  HorizontalAlignment="Left" Margin="708,88,0,580" Name="grdUsers" Width="Auto" CanUserResizeColumns="False" />
+        <Label Content="Add User" Height="28" HorizontalAlignment="Left" Margin="73,24,0,0" Name="label15" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" />
+        <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="594,400,0,0" Name="button2" VerticalAlignment="Top" Width="39" Click="button2_Click" />
+        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="513,308,0,0" Name="txtPassword" VerticalAlignment="Top" Width="120" />
+        <PasswordBox Height="23" HorizontalAlignment="Left" Margin="513,353,0,0" Name="txtRePassword" VerticalAlignment="Top" Width="120" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="176,264,0,0" Name="txtGender" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Male" />
+            <ComboBoxItem Content="Female" />
+        </ComboBox>
+    </Grid>
+</Page>

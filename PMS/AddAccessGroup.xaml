@@ -1,0 +1,20 @@
+﻿<Page x:Class="PMS.AddAccessGroup"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="556" d:DesignWidth="570"
+	Title="AddAccessGroup">
+
+    <Grid Width="Auto" Height="Auto">
+        <Label Content="Group Name" Height="28" HorizontalAlignment="Left" Margin="26,69,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="124,72,0,0" Name="txtGroupName" VerticalAlignment="Top" Width="259" />
+        <DataGrid AutoGenerateColumns="True" Height="206" HorizontalAlignment="Left" Margin="430,72,0,0" Name="grdAccessGroup" VerticalAlignment="Top" Width="Auto" ItemsSource="{Binding}" CanUserResizeColumns="False" />
+        <Label Content="Description" Height="28" HorizontalAlignment="Left" Margin="26,103,0,0" Name="label2" VerticalAlignment="Top" />
+        <TextBox Height="118" HorizontalAlignment="Left" Margin="124,108,0,0" Name="txtDescription" VerticalAlignment="Top" Width="259" TextWrapping="WrapWithOverflow" />
+        <Button Content="Add" Height="23" HorizontalAlignment="Left" Margin="124,246,0,0" Name="button1" VerticalAlignment="Top" Width="75" Click="button1_Click" />
+        <Label Content="Add Access Group" Height="43" HorizontalAlignment="Left" Margin="36,20,0,0" Name="label3" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" />
+        <Button Content="Clear" Height="23" HorizontalAlignment="Left" Margin="222,246,0,0" Name="button2" VerticalAlignment="Top" Width="75" Click="button2_Click" />
+    </Grid>
+</Page>

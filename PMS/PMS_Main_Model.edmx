@@ -1,0 +1,1281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PMS_Main_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="PMS_Main_ModelStoreContainer">
+    <EntitySet Name="Exporters" EntityType="PMS_Main_Model.Store.Exporters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Directors" EntityType="PMS_Main_Model.Store.Directors" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Shipments" EntityType="PMS_Main_Model.Store.Shipments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Buyers" EntityType="PMS_Main_Model.Store.Buyers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Declarations" EntityType="PMS_Main_Model.Store.Declarations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Policies" EntityType="PMS_Main_Model.Store.Policies" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Commodities" EntityType="PMS_Main_Model.Store.Commodities" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Countries" EntityType="PMS_Main_Model.Store.Countries" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PremiumRates" EntityType="PMS_Main_Model.Store.PremiumRates" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="PMS_Main_Model.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AccessGroups" EntityType="PMS_Main_Model.Store.AccessGroups" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AccessControls" EntityType="PMS_Main_Model.Store.AccessControls" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Buyers_CompanyBuyer" EntityType="PMS_Main_Model.Store.Buyers_CompanyBuyer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Buyers_IndividualBuyer" EntityType="PMS_Main_Model.Store.Buyers_IndividualBuyer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ExporterDirector" EntityType="PMS_Main_Model.Store.ExporterDirector" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AccessGroupUser" EntityType="PMS_Main_Model.Store.AccessGroupUser" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AccessControlAccessGroup" EntityType="PMS_Main_Model.Store.AccessControlAccessGroup" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_ExporterDirector_Exporter" Association="PMS_Main_Model.Store.FK_ExporterDirector_Exporter">
+      <End Role="Exporter" EntitySet="Exporters" />
+      <End Role="ExporterDirector" EntitySet="ExporterDirector" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ExporterDirector_Director" Association="PMS_Main_Model.Store.FK_ExporterDirector_Director">
+      <End Role="Director" EntitySet="Directors" />
+      <End Role="ExporterDirector" EntitySet="ExporterDirector" />
+    </AssociationSet>
+    <AssociationSet Name="ExporterShipment" Association="PMS_Main_Model.Store.ExporterShipment">
+      <End Role="Exporter" EntitySet="Exporters" />
+      <End Role="Shipment" EntitySet="Shipments" />
+    </AssociationSet>
+    <AssociationSet Name="ExporterDeclaration" Association="PMS_Main_Model.Store.ExporterDeclaration">
+      <End Role="Exporter" EntitySet="Exporters" />
+      <End Role="Declaration" EntitySet="Declarations" />
+    </AssociationSet>
+    <AssociationSet Name="BuyerShipment" Association="PMS_Main_Model.Store.BuyerShipment">
+      <End Role="Buyer" EntitySet="Buyers" />
+      <End Role="Shipment" EntitySet="Shipments" />
+    </AssociationSet>
+    <AssociationSet Name="DeclarationBuyer" Association="PMS_Main_Model.Store.DeclarationBuyer">
+      <End Role="Declaration" EntitySet="Declarations" />
+      <End Role="Buyer" EntitySet="Buyers" />
+    </AssociationSet>
+    <AssociationSet Name="PolicyDeclaration" Association="PMS_Main_Model.Store.PolicyDeclaration">
+      <End Role="Policy" EntitySet="Policies" />
+      <End Role="Declaration" EntitySet="Declarations" />
+    </AssociationSet>
+    <AssociationSet Name="CommodityShipment" Association="PMS_Main_Model.Store.CommodityShipment">
+      <End Role="Commodity" EntitySet="Commodities" />
+      <End Role="Shipment" EntitySet="Shipments" />
+    </AssociationSet>
+    <AssociationSet Name="CommodityDeclaration" Association="PMS_Main_Model.Store.CommodityDeclaration">
+      <End Role="Commodity" EntitySet="Commodities" />
+      <End Role="Declaration" EntitySet="Declarations" />
+    </AssociationSet>
+    <AssociationSet Name="CountryPremiumRate" Association="PMS_Main_Model.Store.CountryPremiumRate">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="PremiumRate" EntitySet="PremiumRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccessGroupUser_AccessGroup" Association="PMS_Main_Model.Store.FK_AccessGroupUser_AccessGroup">
+      <End Role="AccessGroup" EntitySet="AccessGroups" />
+      <End Role="AccessGroupUser" EntitySet="AccessGroupUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccessGroupUser_User" Association="PMS_Main_Model.Store.FK_AccessGroupUser_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="AccessGroupUser" EntitySet="AccessGroupUser" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccessControlAccessGroup_AccessControl" Association="PMS_Main_Model.Store.FK_AccessControlAccessGroup_AccessControl">
+      <End Role="AccessControl" EntitySet="AccessControls" />
+      <End Role="AccessControlAccessGroup" EntitySet="AccessControlAccessGroup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AccessControlAccessGroup_AccessGroup" Association="PMS_Main_Model.Store.FK_AccessControlAccessGroup_AccessGroup">
+      <End Role="AccessGroup" EntitySet="AccessGroups" />
+      <End Role="AccessControlAccessGroup" EntitySet="AccessControlAccessGroup" />
+    </AssociationSet>
+    <AssociationSet Name="BuyerCountry" Association="PMS_Main_Model.Store.BuyerCountry">
+      <End Role="Buyer" EntitySet="Buyers" />
+      <End Role="Country" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="DeclarationCountry" Association="PMS_Main_Model.Store.DeclarationCountry">
+      <End Role="Declaration" EntitySet="Declarations" />
+      <End Role="Country" EntitySet="Countries" />
+    </AssociationSet>
+    <AssociationSet Name="CommodityPremiumRate" Association="PMS_Main_Model.Store.CommodityPremiumRate">
+      <End Role="Commodity" EntitySet="Commodities" />
+      <End Role="PremiumRate" EntitySet="PremiumRates" />
+    </AssociationSet>
+    <AssociationSet Name="DeclarationPremiumRate" Association="PMS_Main_Model.Store.DeclarationPremiumRate">
+      <End Role="Declaration" EntitySet="Declarations" />
+      <End Role="PremiumRate" EntitySet="PremiumRates" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CompanyBuyer_inherits_Buyer" Association="PMS_Main_Model.Store.FK_CompanyBuyer_inherits_Buyer">
+      <End Role="Buyer" EntitySet="Buyers" />
+      <End Role="CompanyBuyer" EntitySet="Buyers_CompanyBuyer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_IndividualBuyer_inherits_Buyer" Association="PMS_Main_Model.Store.FK_IndividualBuyer_inherits_Buyer">
+      <End Role="Buyer" EntitySet="Buyers" />
+      <End Role="IndividualBuyer" EntitySet="Buyers_IndividualBuyer" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Exporters">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RegNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TelNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ShortTag" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Directors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="NIC" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="TelNo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="JoinedDate" Type="datetime" Nullable="true" />
+    <Property Name="Type" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="PassportNo" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="DateOfBirth" Type="datetime" Nullable="true" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="true" />
+  </EntityType>
+  <EntityType Name="Shipments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExporterId" Type="int" Nullable="false" />
+    <Property Name="BuyerId" Type="int" Nullable="false" />
+    <Property Name="CommodityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Buyers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="City" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ZipCode" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Fax" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="TelephoneNo" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Declarations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExporterId" Type="int" Nullable="false" />
+    <Property Name="BuyerId" Type="int" Nullable="false" />
+    <Property Name="PolicyId" Type="int" Nullable="false" />
+    <Property Name="CommodityId" Type="int" Nullable="false" />
+    <Property Name="ShipmentDate" Type="datetime" Nullable="false" />
+    <Property Name="TermOfPayment" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="StampDate" Type="datetime" Nullable="false" />
+    <Property Name="CreditDuration" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="GrossValue" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="PremiumRateId" Type="int" Nullable="true" />
+    <Property Name="Buyer_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Policies">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PolicyNumber" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Commodities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ShortCode" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PremiumRates">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Rate" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="CommodityId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EpfNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="NIC" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LastName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Designation" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MobileNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="LandPhone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="AddedDate" Type="datetime" Nullable="true" />
+    <Property Name="LastLoginDate" Type="datetime" Nullable="true" />
+    <Property Name="DateOfBirth" Type="datetime" Nullable="true" />
+  </EntityType>
+  <EntityType Name="AccessGroups">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccessControls">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActionDescription" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ShortTag" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Buyers_CompanyBuyer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="ShortName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Buyers_IndividualBuyer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="DateOfBirth" Type="datetime" Nullable="true" />
+    <Property Name="NIC" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MobileNo" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Passport" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ExporterDirector">
+    <Key>
+      <PropertyRef Name="Exporters_Id" />
+      <PropertyRef Name="Directors_Id" />
+    </Key>
+    <Property Name="Exporters_Id" Type="int" Nullable="false" />
+    <Property Name="Directors_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccessGroupUser">
+    <Key>
+      <PropertyRef Name="AccessGroups_Id" />
+      <PropertyRef Name="Users_Id" />
+    </Key>
+    <Property Name="AccessGroups_Id" Type="int" Nullable="false" />
+    <Property Name="Users_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AccessControlAccessGroup">
+    <Key>
+      <PropertyRef Name="AccessControls_Id" />
+      <PropertyRef Name="AccessGroups_Id" />
+    </Key>
+    <Property Name="AccessControls_Id" Type="int" Nullable="false" />
+    <Property Name="AccessGroups_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="ExporterShipment">
+    <End Role="Exporter" Type="PMS_Main_Model.Store.Exporters" Multiplicity="1" />
+    <End Role="Shipment" Type="PMS_Main_Model.Store.Shipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exporter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shipment">
+        <PropertyRef Name="ExporterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ExporterDeclaration">
+    <End Role="Exporter" Type="PMS_Main_Model.Store.Exporters" Multiplicity="1" />
+    <End Role="Declaration" Type="PMS_Main_Model.Store.Declarations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exporter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Declaration">
+        <PropertyRef Name="ExporterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuyerShipment">
+    <End Role="Buyer" Type="PMS_Main_Model.Store.Buyers" Multiplicity="1" />
+    <End Role="Shipment" Type="PMS_Main_Model.Store.Shipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shipment">
+        <PropertyRef Name="BuyerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DeclarationBuyer">
+    <End Role="Declaration" Type="PMS_Main_Model.Store.Declarations" Multiplicity="*" />
+    <End Role="Buyer" Type="PMS_Main_Model.Store.Buyers" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Declaration">
+        <PropertyRef Name="Buyer_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PolicyDeclaration">
+    <End Role="Policy" Type="PMS_Main_Model.Store.Policies" Multiplicity="1" />
+    <End Role="Declaration" Type="PMS_Main_Model.Store.Declarations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Policy">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Declaration">
+        <PropertyRef Name="PolicyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommodityShipment">
+    <End Role="Commodity" Type="PMS_Main_Model.Store.Commodities" Multiplicity="1" />
+    <End Role="Shipment" Type="PMS_Main_Model.Store.Shipments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commodity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Shipment">
+        <PropertyRef Name="CommodityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommodityDeclaration">
+    <End Role="Commodity" Type="PMS_Main_Model.Store.Commodities" Multiplicity="1" />
+    <End Role="Declaration" Type="PMS_Main_Model.Store.Declarations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commodity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Declaration">
+        <PropertyRef Name="CommodityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CountryPremiumRate">
+    <End Role="Country" Type="PMS_Main_Model.Store.Countries" Multiplicity="1" />
+    <End Role="PremiumRate" Type="PMS_Main_Model.Store.PremiumRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PremiumRate">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BuyerCountry">
+    <End Role="Buyer" Type="PMS_Main_Model.Store.Buyers" Multiplicity="*" />
+    <End Role="Country" Type="PMS_Main_Model.Store.Countries" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Buyer">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DeclarationCountry">
+    <End Role="Declaration" Type="PMS_Main_Model.Store.Declarations" Multiplicity="*" />
+    <End Role="Country" Type="PMS_Main_Model.Store.Countries" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Declaration">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CommodityPremiumRate">
+    <End Role="Commodity" Type="PMS_Main_Model.Store.Commodities" Multiplicity="1" />
+    <End Role="PremiumRate" Type="PMS_Main_Model.Store.PremiumRates" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Commodity">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PremiumRate">
+        <PropertyRef Name="CommodityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="DeclarationPremiumRate">
+    <End Role="Declaration" Type="PMS_Main_Model.Store.Declarations" Multiplicity="*" />
+    <End Role="PremiumRate" Type="PMS_Main_Model.Store.PremiumRates" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PremiumRate">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Declaration">
+        <PropertyRef Name="PremiumRateId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExporterDirector_Exporter">
+    <End Role="Exporter" Type="PMS_Main_Model.Store.Exporters" Multiplicity="1" />
+    <End Role="ExporterDirector" Type="PMS_Main_Model.Store.ExporterDirector" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Exporter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExporterDirector">
+        <PropertyRef Name="Exporters_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ExporterDirector_Director">
+    <End Role="ExporterDirector" Type="PMS_Main_Model.Store.ExporterDirector" Multiplicity="*" />
+    <End Role="Director" Type="PMS_Main_Model.Store.Directors" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="Director">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ExporterDirector">
+        <PropertyRef Name="Directors_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccessGroupUser_AccessGroup">
+    <End Role="AccessGroup" Type="PMS_Main_Model.Store.AccessGroups" Multiplicity="1" />
+    <End Role="AccessGroupUser" Type="PMS_Main_Model.Store.AccessGroupUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccessGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccessGroupUser">
+        <PropertyRef Name="AccessGroups_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccessGroupUser_User">
+    <End Role="AccessGroupUser" Type="PMS_Main_Model.Store.AccessGroupUser" Multiplicity="*" />
+    <End Role="User" Type="PMS_Main_Model.Store.Users" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccessGroupUser">
+        <PropertyRef Name="Users_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccessControlAccessGroup_AccessControl">
+    <End Role="AccessControl" Type="PMS_Main_Model.Store.AccessControls" Multiplicity="1" />
+    <End Role="AccessControlAccessGroup" Type="PMS_Main_Model.Store.AccessControlAccessGroup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AccessControl">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccessControlAccessGroup">
+        <PropertyRef Name="AccessControls_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AccessControlAccessGroup_AccessGroup">
+    <End Role="AccessControlAccessGroup" Type="PMS_Main_Model.Store.AccessControlAccessGroup" Multiplicity="*" />
+    <End Role="AccessGroup" Type="PMS_Main_Model.Store.AccessGroups" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="AccessGroup">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AccessControlAccessGroup">
+        <PropertyRef Name="AccessGroups_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CompanyBuyer_inherits_Buyer">
+    <End Role="Buyer" Type="PMS_Main_Model.Store.Buyers" Multiplicity="1" />
+    <End Role="CompanyBuyer" Type="PMS_Main_Model.Store.Buyers_CompanyBuyer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CompanyBuyer">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_IndividualBuyer_inherits_Buyer">
+    <End Role="Buyer" Type="PMS_Main_Model.Store.Buyers" Multiplicity="1" />
+    <End Role="IndividualBuyer" Type="PMS_Main_Model.Store.Buyers_IndividualBuyer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Buyer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="IndividualBuyer">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="PMS_Main_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="PMS_Main_ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Exporters" EntityType="PMS_Main_Model.Exporter" />
+          <EntitySet Name="Directors" EntityType="PMS_Main_Model.Director" />
+          <EntitySet Name="Shipments" EntityType="PMS_Main_Model.Shipment" />
+          <EntitySet Name="Buyers" EntityType="PMS_Main_Model.Buyer" />
+          <EntitySet Name="Declarations" EntityType="PMS_Main_Model.Declaration" />
+          <EntitySet Name="Policies" EntityType="PMS_Main_Model.Policy" />
+          <EntitySet Name="Commodities" EntityType="PMS_Main_Model.Commodity" />
+          <AssociationSet Name="ExporterDirector" Association="PMS_Main_Model.ExporterDirector">
+            <End Role="Exporter" EntitySet="Exporters" />
+            <End Role="Director" EntitySet="Directors" />
+          </AssociationSet>
+          <AssociationSet Name="ExporterShipment" Association="PMS_Main_Model.ExporterShipment">
+            <End EntitySet="Exporters" Role="Exporter" />
+            <End EntitySet="Shipments" Role="Shipment" />
+          </AssociationSet>
+          <AssociationSet Name="ExporterDeclaration" Association="PMS_Main_Model.ExporterDeclaration">
+            <End Role="Exporter" EntitySet="Exporters" />
+            <End Role="Declaration" EntitySet="Declarations" />
+          </AssociationSet>
+          <AssociationSet Name="BuyerShipment" Association="PMS_Main_Model.BuyerShipment">
+            <End Role="Buyer" EntitySet="Buyers" />
+            <End Role="Shipment" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="DeclarationBuyer" Association="PMS_Main_Model.DeclarationBuyer">
+            <End Role="Declaration" EntitySet="Declarations" />
+            <End Role="Buyer" EntitySet="Buyers" />
+          </AssociationSet>
+          <AssociationSet Name="PolicyDeclaration" Association="PMS_Main_Model.PolicyDeclaration">
+            <End Role="Policy" EntitySet="Policies" />
+            <End Role="Declaration" EntitySet="Declarations" />
+          </AssociationSet>
+          <AssociationSet Name="CommodityShipment" Association="PMS_Main_Model.CommodityShipment">
+            <End Role="Commodity" EntitySet="Commodities" />
+            <End Role="Shipment" EntitySet="Shipments" />
+          </AssociationSet>
+          <AssociationSet Name="CommodityDeclaration" Association="PMS_Main_Model.CommodityDeclaration">
+            <End Role="Commodity" EntitySet="Commodities" />
+            <End Role="Declaration" EntitySet="Declarations" />
+          </AssociationSet>
+          <EntitySet Name="Countries" EntityType="PMS_Main_Model.Country" />
+          <EntitySet Name="PremiumRates" EntityType="PMS_Main_Model.PremiumRate" />
+          <AssociationSet Name="CountryPremiumRate" Association="PMS_Main_Model.CountryPremiumRate">
+            <End Role="Country" EntitySet="Countries" />
+            <End Role="PremiumRate" EntitySet="PremiumRates" />
+          </AssociationSet>
+          <EntitySet Name="Users" EntityType="PMS_Main_Model.User" />
+          <EntitySet Name="AccessGroups" EntityType="PMS_Main_Model.AccessGroup" />
+          <EntitySet Name="AccessControls" EntityType="PMS_Main_Model.AccessControl" />
+          <AssociationSet Name="AccessGroupUser" Association="PMS_Main_Model.AccessGroupUser">
+            <End Role="AccessGroup" EntitySet="AccessGroups" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="AccessControlAccessGroup" Association="PMS_Main_Model.AccessControlAccessGroup">
+            <End Role="AccessControl" EntitySet="AccessControls" />
+            <End Role="AccessGroup" EntitySet="AccessGroups" />
+          </AssociationSet>
+          <AssociationSet Name="BuyerCountry" Association="PMS_Main_Model.BuyerCountry">
+            <End Role="Buyer" EntitySet="Buyers" />
+            <End Role="Country" EntitySet="Countries" />
+          </AssociationSet>
+          <AssociationSet Name="DeclarationCountry" Association="PMS_Main_Model.DeclarationCountry">
+            <End Role="Declaration" EntitySet="Declarations" />
+            <End Role="Country" EntitySet="Countries" />
+          </AssociationSet>
+          <AssociationSet Name="CommodityPremiumRate" Association="PMS_Main_Model.CommodityPremiumRate">
+            <End Role="Commodity" EntitySet="Commodities" />
+            <End Role="PremiumRate" EntitySet="PremiumRates" />
+          </AssociationSet>
+          <AssociationSet Name="DeclarationPremiumRate" Association="PMS_Main_Model.DeclarationPremiumRate">
+            <End Role="Declaration" EntitySet="Declarations" />
+            <End Role="PremiumRate" EntitySet="PremiumRates" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Exporter">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Directors" Relationship="PMS_Main_Model.ExporterDirector" FromRole="Exporter" ToRole="Director" />
+          <NavigationProperty Name="Shipments" Relationship="PMS_Main_Model.ExporterShipment" FromRole="Exporter" ToRole="Shipment" />
+          <NavigationProperty Name="Declarations" Relationship="PMS_Main_Model.ExporterDeclaration" FromRole="Exporter" ToRole="Declaration" />
+          <Property Type="String" Name="Name" Nullable="true" />
+          <Property Type="String" Name="RegNo" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="TelNo" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <Property Type="String" Name="ShortTag" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Director">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Exporters" Relationship="PMS_Main_Model.ExporterDirector" FromRole="Director" ToRole="Exporter" />
+          <Property Type="String" Name="FirstName" Nullable="true" />
+          <Property Type="String" Name="Address" Nullable="true" />
+          <Property Type="String" Name="NIC" Nullable="true" />
+          <Property Type="String" Name="TelNo" Nullable="true" />
+          <Property Type="String" Name="Email" Nullable="true" />
+          <Property Type="DateTime" Name="JoinedDate" Nullable="true" />
+          <Property Type="String" Name="Type" Nullable="true" />
+          <Property Type="String" Name="PassportNo" Nullable="true" />
+          <Property Type="String" Name="Gender" Nullable="true" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+          <Property Type="String" Name="LastName" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Shipment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="ExporterId" Nullable="false" />
+          <NavigationProperty Name="Exporter" Relationship="PMS_Main_Model.ExporterShipment" FromRole="Shipment" ToRole="Exporter" />
+          <NavigationProperty Name="Buyer" Relationship="PMS_Main_Model.BuyerShipment" FromRole="Shipment" ToRole="Buyer" />
+          <Property Type="Int32" Name="BuyerId" Nullable="false" />
+          <NavigationProperty Name="Commodity" Relationship="PMS_Main_Model.CommodityShipment" FromRole="Shipment" ToRole="Commodity" />
+          <Property Type="Int32" Name="CommodityId" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Buyer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Shipments" Relationship="PMS_Main_Model.BuyerShipment" FromRole="Buyer" ToRole="Shipment" />
+          <NavigationProperty Name="Declarations" Relationship="PMS_Main_Model.DeclarationBuyer" FromRole="Buyer" ToRole="Declaration" />
+          <NavigationProperty Name="Country" Relationship="PMS_Main_Model.BuyerCountry" FromRole="Buyer" ToRole="Country" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="City" Nullable="false" />
+          <Property Type="String" Name="ZipCode" Nullable="false" />
+          <Property Type="String" Name="Fax" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="TelephoneNo" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Declaration">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Exporter" Relationship="PMS_Main_Model.ExporterDeclaration" FromRole="Declaration" ToRole="Exporter" />
+          <Property Type="Int32" Name="ExporterId" Nullable="false" />
+          <NavigationProperty Name="Buyer" Relationship="PMS_Main_Model.DeclarationBuyer" FromRole="Declaration" ToRole="Buyer" />
+          <Property Type="Int32" Name="BuyerId" Nullable="false" />
+          <NavigationProperty Name="Policy" Relationship="PMS_Main_Model.PolicyDeclaration" FromRole="Declaration" ToRole="Policy" />
+          <Property Type="Int32" Name="PolicyId" Nullable="false" />
+          <NavigationProperty Name="Commodity" Relationship="PMS_Main_Model.CommodityDeclaration" FromRole="Declaration" ToRole="Commodity" />
+          <Property Type="Int32" Name="CommodityId" Nullable="false" />
+          <Property Type="DateTime" Name="ShipmentDate" Nullable="false" />
+          <Property Type="String" Name="TermOfPayment" Nullable="false" />
+          <Property Type="DateTime" Name="StampDate" Nullable="false" />
+          <Property Type="String" Name="CreditDuration" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="PMS_Main_Model.DeclarationCountry" FromRole="Declaration" ToRole="Country" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <Property Type="String" Name="GrossValue" Nullable="false" />
+          <NavigationProperty Name="PremiumRate" Relationship="PMS_Main_Model.DeclarationPremiumRate" FromRole="Declaration" ToRole="PremiumRate" />
+          <Property Type="Int32" Name="PremiumRateId" Nullable="true" />
+        </EntityType>
+        <EntityType Name="Policy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Declarations" Relationship="PMS_Main_Model.PolicyDeclaration" FromRole="Policy" ToRole="Declaration" />
+          <Property Type="String" Name="PolicyNumber" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Commodity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Shipments" Relationship="PMS_Main_Model.CommodityShipment" FromRole="Commodity" ToRole="Shipment" />
+          <NavigationProperty Name="Declarations" Relationship="PMS_Main_Model.CommodityDeclaration" FromRole="Commodity" ToRole="Declaration" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="PremiumRates" Relationship="PMS_Main_Model.CommodityPremiumRate" FromRole="Commodity" ToRole="PremiumRate" />
+        </EntityType>
+        <Association Name="ExporterDirector">
+          <End Type="PMS_Main_Model.Exporter" Role="Exporter" Multiplicity="*" />
+          <End Type="PMS_Main_Model.Director" Role="Director" Multiplicity="*" />
+        </Association>
+        <Association Name="ExporterShipment">
+          <End Type="PMS_Main_Model.Exporter" Multiplicity="1" Role="Exporter" />
+          <End Type="PMS_Main_Model.Shipment" Multiplicity="*" Role="Shipment" />
+          <ReferentialConstraint>
+            <Principal Role="Exporter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shipment">
+              <PropertyRef Name="ExporterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ExporterDeclaration">
+          <End Type="PMS_Main_Model.Exporter" Role="Exporter" Multiplicity="1" />
+          <End Type="PMS_Main_Model.Declaration" Role="Declaration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Exporter">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Declaration">
+              <PropertyRef Name="ExporterId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="BuyerShipment">
+          <End Type="PMS_Main_Model.Buyer" Role="Buyer" Multiplicity="1" />
+          <End Type="PMS_Main_Model.Shipment" Role="Shipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Buyer">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shipment">
+              <PropertyRef Name="BuyerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeclarationBuyer">
+          <End Type="PMS_Main_Model.Declaration" Role="Declaration" Multiplicity="*" />
+          <End Type="PMS_Main_Model.Buyer" Role="Buyer" Multiplicity="1" />
+        </Association>
+        <Association Name="PolicyDeclaration">
+          <End Type="PMS_Main_Model.Policy" Role="Policy" Multiplicity="1" />
+          <End Type="PMS_Main_Model.Declaration" Role="Declaration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Policy">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Declaration">
+              <PropertyRef Name="PolicyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CommodityShipment">
+          <End Type="PMS_Main_Model.Commodity" Role="Commodity" Multiplicity="1" />
+          <End Type="PMS_Main_Model.Shipment" Role="Shipment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Shipment">
+              <PropertyRef Name="CommodityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CommodityDeclaration">
+          <End Type="PMS_Main_Model.Commodity" Role="Commodity" Multiplicity="1" />
+          <End Type="PMS_Main_Model.Declaration" Role="Declaration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Declaration">
+              <PropertyRef Name="CommodityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Country">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="ShortCode" Nullable="false" />
+          <NavigationProperty Name="PremiumRates" Relationship="PMS_Main_Model.CountryPremiumRate" FromRole="Country" ToRole="PremiumRate" />
+          <NavigationProperty Name="Buyers" Relationship="PMS_Main_Model.BuyerCountry" FromRole="Country" ToRole="Buyer" />
+          <NavigationProperty Name="Declarations" Relationship="PMS_Main_Model.DeclarationCountry" FromRole="Country" ToRole="Declaration" />
+        </EntityType>
+        <EntityType Name="PremiumRate">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Rate" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+          <NavigationProperty Name="Country" Relationship="PMS_Main_Model.CountryPremiumRate" FromRole="PremiumRate" ToRole="Country" />
+          <Property Type="Int32" Name="CountryId" Nullable="false" />
+          <NavigationProperty Name="Commodity" Relationship="PMS_Main_Model.CommodityPremiumRate" FromRole="PremiumRate" ToRole="Commodity" />
+          <Property Type="Int32" Name="CommodityId" Nullable="false" />
+          <NavigationProperty Name="Declarations" Relationship="PMS_Main_Model.DeclarationPremiumRate" FromRole="PremiumRate" ToRole="Declaration" />
+        </EntityType>
+        <Association Name="CountryPremiumRate">
+          <End Type="PMS_Main_Model.Country" Role="Country" Multiplicity="1" />
+          <End Type="PMS_Main_Model.PremiumRate" Role="PremiumRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PremiumRate">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CompanyBuyer" BaseType="PMS_Main_Model.Buyer" >
+          <Property Type="String" Name="ShortName" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IndividualBuyer" BaseType="PMS_Main_Model.Buyer" >
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+          <Property Type="String" Name="NIC" Nullable="false" />
+          <Property Type="String" Name="MobileNo" Nullable="false" />
+          <Property Type="String" Name="Passport" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AccessGroups" Relationship="PMS_Main_Model.AccessGroupUser" FromRole="User" ToRole="AccessGroup" />
+          <Property Type="String" Name="EpfNo" Nullable="false" />
+          <Property Type="String" Name="NIC" Nullable="false" />
+          <Property Type="String" Name="FirstName" Nullable="false" />
+          <Property Type="String" Name="LastName" Nullable="false" />
+          <Property Type="String" Name="Gender" Nullable="false" />
+          <Property Type="String" Name="Designation" Nullable="false" />
+          <Property Type="String" Name="Address" Nullable="false" />
+          <Property Type="String" Name="MobileNo" Nullable="false" />
+          <Property Type="String" Name="LandPhone" Nullable="false" />
+          <Property Type="String" Name="Email" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" />
+          <Property Type="DateTime" Name="AddedDate" Nullable="true" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="true" />
+          <Property Type="DateTime" Name="DateOfBirth" Nullable="true" />
+        </EntityType>
+        <EntityType Name="AccessGroup">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Users" Relationship="PMS_Main_Model.AccessGroupUser" FromRole="AccessGroup" ToRole="User" />
+          <NavigationProperty Name="AccessControls" Relationship="PMS_Main_Model.AccessControlAccessGroup" FromRole="AccessGroup" ToRole="AccessControl" />
+          <Property Type="String" Name="Name" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AccessControl">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="AccessGroups" Relationship="PMS_Main_Model.AccessControlAccessGroup" FromRole="AccessControl" ToRole="AccessGroup" />
+          <Property Type="String" Name="ActionDescription" Nullable="false" />
+          <Property Type="String" Name="ShortTag" Nullable="false" />
+        </EntityType>
+        <Association Name="AccessGroupUser">
+          <End Type="PMS_Main_Model.AccessGroup" Role="AccessGroup" Multiplicity="*" />
+          <End Type="PMS_Main_Model.User" Role="User" Multiplicity="*" />
+        </Association>
+        <Association Name="AccessControlAccessGroup">
+          <End Type="PMS_Main_Model.AccessControl" Role="AccessControl" Multiplicity="*" />
+          <End Type="PMS_Main_Model.AccessGroup" Role="AccessGroup" Multiplicity="*" />
+        </Association>
+        <Association Name="BuyerCountry">
+          <End Type="PMS_Main_Model.Buyer" Role="Buyer" Multiplicity="*" />
+          <End Type="PMS_Main_Model.Country" Role="Country" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Buyer">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeclarationCountry">
+          <End Type="PMS_Main_Model.Declaration" Role="Declaration" Multiplicity="*" />
+          <End Type="PMS_Main_Model.Country" Role="Country" Multiplicity="1" />
+          <ReferentialConstraint>
+            <Principal Role="Country">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Declaration">
+              <PropertyRef Name="CountryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CommodityPremiumRate">
+          <End Type="PMS_Main_Model.Commodity" Role="Commodity" Multiplicity="1" />
+          <End Type="PMS_Main_Model.PremiumRate" Role="PremiumRate" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Commodity">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PremiumRate">
+              <PropertyRef Name="CommodityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DeclarationPremiumRate">
+          <End Type="PMS_Main_Model.Declaration" Role="Declaration" Multiplicity="*" />
+          <End Type="PMS_Main_Model.PremiumRate" Role="PremiumRate" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PremiumRate">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Declaration">
+              <PropertyRef Name="PremiumRateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="PMS_Main_ModelStoreContainer" CdmEntityContainer="PMS_Main_ModelContainer">
+    <EntitySetMapping Name="Exporters">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.Exporter)">
+        <MappingFragment StoreEntitySet="Exporters">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="RegNo" ColumnName="RegNo" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ShortTag" ColumnName="ShortTag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Directors">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.Director)">
+        <MappingFragment StoreEntitySet="Directors">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="TelNo" ColumnName="TelNo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="JoinedDate" ColumnName="JoinedDate" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PassportNo" ColumnName="PassportNo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Shipments">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.Shipment)">
+        <MappingFragment StoreEntitySet="Shipments">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExporterId" ColumnName="ExporterId" />
+          <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buyers">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.Buyer)">
+        <MappingFragment StoreEntitySet="Buyers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="TelephoneNo" ColumnName="TelephoneNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.CompanyBuyer)">
+        <MappingFragment StoreEntitySet="Buyers_CompanyBuyer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.IndividualBuyer)">
+        <MappingFragment StoreEntitySet="Buyers_IndividualBuyer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="Passport" ColumnName="Passport" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Declarations">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.Declaration)">
+        <MappingFragment StoreEntitySet="Declarations">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ExporterId" ColumnName="ExporterId" />
+          <ScalarProperty Name="BuyerId" ColumnName="BuyerId" />
+          <ScalarProperty Name="PolicyId" ColumnName="PolicyId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+          <ScalarProperty Name="ShipmentDate" ColumnName="ShipmentDate" />
+          <ScalarProperty Name="TermOfPayment" ColumnName="TermOfPayment" />
+          <ScalarProperty Name="StampDate" ColumnName="StampDate" />
+          <ScalarProperty Name="CreditDuration" ColumnName="CreditDuration" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="GrossValue" ColumnName="GrossValue" />
+          <ScalarProperty Name="PremiumRateId" ColumnName="PremiumRateId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Policies">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.Policy)">
+        <MappingFragment StoreEntitySet="Policies">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PolicyNumber" ColumnName="PolicyNumber" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Commodities">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.Commodity)">
+        <MappingFragment StoreEntitySet="Commodities">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Countries">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.Country)">
+        <MappingFragment StoreEntitySet="Countries">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ShortCode" ColumnName="ShortCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PremiumRates">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.PremiumRate)">
+        <MappingFragment StoreEntitySet="PremiumRates">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Rate" ColumnName="Rate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CommodityId" ColumnName="CommodityId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.User)">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EpfNo" ColumnName="EpfNo" />
+          <ScalarProperty Name="NIC" ColumnName="NIC" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="MobileNo" ColumnName="MobileNo" />
+          <ScalarProperty Name="LandPhone" ColumnName="LandPhone" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="AddedDate" ColumnName="AddedDate" />
+          <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccessGroups">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.AccessGroup)">
+        <MappingFragment StoreEntitySet="AccessGroups">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AccessControls">
+      <EntityTypeMapping TypeName="IsTypeOf(PMS_Main_Model.AccessControl)">
+        <MappingFragment StoreEntitySet="AccessControls">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ActionDescription" ColumnName="ActionDescription" />
+          <ScalarProperty Name="ShortTag" ColumnName="ShortTag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="ExporterDirector" TypeName="PMS_Main_Model.ExporterDirector" StoreEntitySet="ExporterDirector">
+      <EndProperty Name="Exporter">
+        <ScalarProperty Name="Id" ColumnName="Exporters_Id" />
+      </EndProperty>
+      <EndProperty Name="Director">
+        <ScalarProperty Name="Id" ColumnName="Directors_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="DeclarationBuyer" TypeName="PMS_Main_Model.DeclarationBuyer" StoreEntitySet="Declarations">
+      <EndProperty Name="Buyer">
+        <ScalarProperty Name="Id" ColumnName="Buyer_Id" />
+      </EndProperty>
+      <EndProperty Name="Declaration">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AccessGroupUser" TypeName="PMS_Main_Model.AccessGroupUser" StoreEntitySet="AccessGroupUser">
+      <EndProperty Name="AccessGroup">
+        <ScalarProperty Name="Id" ColumnName="AccessGroups_Id" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="Id" ColumnName="Users_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="AccessControlAccessGroup" TypeName="PMS_Main_Model.AccessControlAccessGroup" StoreEntitySet="AccessControlAccessGroup">
+      <EndProperty Name="AccessControl">
+        <ScalarProperty Name="Id" ColumnName="AccessControls_Id" />
+      </EndProperty>
+      <EndProperty Name="AccessGroup">
+        <ScalarProperty Name="Id" ColumnName="AccessGroups_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="PMS_Main_Model" ZoomLevel="103" >
+        <EntityTypeShape EntityType="PMS_Main_Model.Exporter" Width="1.5" PointX="0.875" PointY="0.5" Height="3.1340950520833326" />
+        <EntityTypeShape EntityType="PMS_Main_Model.Director" Width="1.5" PointX="0.625" PointY="4" Height="3.5186979166666656" />
+        <EntityTypeShape EntityType="PMS_Main_Model.Shipment" Width="1.5" PointX="4.125" PointY="0.5" Height="2.364889322916667" />
+        <EntityTypeShape EntityType="PMS_Main_Model.Buyer" Width="1.5" PointX="8.125" PointY="0.625" Height="3.3263964843749996" />
+        <EntityTypeShape EntityType="PMS_Main_Model.Declaration" Width="1.5" PointX="4.75" PointY="4" Height="4.0956022135416656" />
+        <EntityTypeShape EntityType="PMS_Main_Model.Policy" Width="1.5" PointX="6.25" PointY="1.625" Height="1.59568359375" />
+        <EntityTypeShape EntityType="PMS_Main_Model.Commodity" Width="1.5" PointX="2.625" PointY="3.375" Height="2.1725878906249996" />
+        <AssociationConnector Association="PMS_Main_Model.ExporterDirector">
+          <ConnectorPoint PointX="1.5" PointY="3.6340950520833326" />
+          <ConnectorPoint PointX="1.5" PointY="4" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.ExporterShipment">
+          <ConnectorPoint PointX="2.375" PointY="1.2381175854013256" />
+          <ConnectorPoint PointX="4.125" PointY="1.2381175854013256" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.ExporterDeclaration">
+          <ConnectorPoint PointX="2.375" PointY="3.1199446614583337" />
+          <ConnectorPoint PointX="3.0885405416666667" PointY="3.1199446614583333" />
+          <ConnectorPoint PointX="3.2552072083333337" PointY="3.1199446614583337" />
+          <ConnectorPoint PointX="5.9375" PointY="3.1199446614583337" />
+          <ConnectorPoint PointX="5.9375" PointY="4" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.BuyerShipment">
+          <ConnectorPoint PointX="8.125" PointY="1.09375" />
+          <ConnectorPoint PointX="5.625" PointY="1.09375" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.DeclarationBuyer">
+          <ConnectorPoint PointX="6.25" PointY="5.26189697265625" />
+          <ConnectorPoint PointX="9.40625" PointY="5.26189697265625" />
+          <ConnectorPoint PointX="9.40625" PointY="3.9513964843749996" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.PolicyDeclaration">
+          <ConnectorPoint PointX="6.9375" PointY="3.22068359375" />
+          <ConnectorPoint PointX="6.9375" PointY="4.5695587158203121" />
+          <ConnectorPoint PointX="6.25" PointY="4.5695587158203121" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.CommodityShipment">
+          <ConnectorPoint PointX="3.171873875" PointY="3.375" />
+          <ConnectorPoint PointX="3.171873875" PointY="1.6824446614583337" />
+          <ConnectorPoint PointX="4.125" PointY="1.6824446614583337" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.CommodityDeclaration">
+          <ConnectorPoint PointX="4.125" PointY="4.7737939453125" />
+          <ConnectorPoint PointX="4.75" PointY="4.7737939453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PMS_Main_Model.Country" Width="1.5" PointX="12.625" PointY="3.875" Height="1.9802864583333326" />
+        <EntityTypeShape EntityType="PMS_Main_Model.PremiumRate" Width="1.5" PointX="9.75" PointY="3.875" Height="2.3648893229166665" />
+        <AssociationConnector Association="PMS_Main_Model.CountryPremiumRate">
+          <ConnectorPoint PointX="12.625" PointY="4.6428464589843754" />
+          <ConnectorPoint PointX="12.614583333333334" PointY="4.6428464589843745" />
+          <ConnectorPoint PointX="12.447916666666666" PointY="4.6428464589843754" />
+          <ConnectorPoint PointX="11.25" PointY="4.6428464589843754" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PMS_Main_Model.CompanyBuyer" Width="1.5" PointX="11.625" PointY="0.625" Height="1.2110807291666668" />
+        <InheritanceConnector EntityType="PMS_Main_Model.CompanyBuyer" ManuallyRouted="false" >
+          <ConnectorPoint PointX="9.625" PointY="1.2305403645833333" />
+          <ConnectorPoint PointX="11.625" PointY="1.2305403645833333" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="PMS_Main_Model.IndividualBuyer" Width="1.5" PointX="11.125" PointY="2" Height="1.787985026041667" />
+        <InheritanceConnector EntityType="PMS_Main_Model.IndividualBuyer" ManuallyRouted="false" >
+          <ConnectorPoint PointX="9.625" PointY="2.65625" />
+          <ConnectorPoint PointX="11.125" PointY="2.65625" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="PMS_Main_Model.User" Width="1.5" PointX="7.625" PointY="5.625" Height="4.2879036458333317" />
+        <EntityTypeShape EntityType="PMS_Main_Model.AccessGroup" Width="1.5" PointX="10.875" PointY="6.75" Height="1.9802864583333335" />
+        <EntityTypeShape EntityType="PMS_Main_Model.AccessControl" Width="1.5" PointX="12.875" PointY="6.125" Height="1.7879850260416665" />
+        <AssociationConnector Association="PMS_Main_Model.AccessGroupUser">
+          <ConnectorPoint PointX="10.875" PointY="7.7401432291666676" />
+          <ConnectorPoint PointX="9.125" PointY="7.7401432291666676" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.AccessControlAccessGroup">
+          <ConnectorPoint PointX="12.875" PointY="7.3314925130208337" />
+          <ConnectorPoint PointX="12.375" PointY="7.3314925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.BuyerCountry">
+          <ConnectorPoint PointX="9.625" PointY="1.9180403645833333" />
+          <ConnectorPoint PointX="13.65625" PointY="1.9180403645833333" />
+          <ConnectorPoint PointX="13.65625" PointY="3.875" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.DeclarationCountry">
+          <ConnectorPoint PointX="5.312498" PointY="4" />
+          <ConnectorPoint PointX="5.312498" PointY="3.9375" />
+          <ConnectorPoint PointX="6.3125" PointY="3.9375" />
+          <ConnectorPoint PointX="6.3125" PointY="4.9612939453125" />
+          <ConnectorPoint PointX="9.3229166666666661" PointY="4.9612939453124989" />
+          <ConnectorPoint PointX="9.4895833333333339" PointY="4.9612939453125" />
+          <ConnectorPoint PointX="9.6875" PointY="4.9612939453125" />
+          <ConnectorPoint PointX="9.6875" PointY="3.8125" />
+          <ConnectorPoint PointX="11.0625" PointY="3.8125" />
+          <ConnectorPoint PointX="11.0625" PointY="3.8504850260416674" />
+          <ConnectorPoint PointX="12.53125" PointY="3.8504850260416674" />
+          <ConnectorPoint PointX="12.53125" PointY="5.3764691748046882" />
+          <ConnectorPoint PointX="12.625" PointY="5.3764691748046882" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.CommodityPremiumRate">
+          <ConnectorPoint PointX="3.6796889375" PointY="3.375" />
+          <ConnectorPoint PointX="3.6796889375" PointY="3.09375" />
+          <ConnectorPoint PointX="4.5" PointY="3.09375" />
+          <ConnectorPoint PointX="4.5" PointY="3.75" />
+          <ConnectorPoint PointX="5.854166666666667" PointY="3.7499999999999996" />
+          <ConnectorPoint PointX="6.020833333333333" PointY="3.75" />
+          <ConnectorPoint PointX="6.854166666666667" PointY="3.7499999999999996" />
+          <ConnectorPoint PointX="7.020833333333333" PointY="3.75" />
+          <ConnectorPoint PointX="7.875" PointY="3.75" />
+          <ConnectorPoint PointX="7.875" PointY="4.5695587158203121" />
+          <ConnectorPoint PointX="9.3229166666666661" PointY="4.5695587158203113" />
+          <ConnectorPoint PointX="9.4895833333333339" PointY="4.5695587158203121" />
+          <ConnectorPoint PointX="9.75" PointY="4.5695587158203121" />
+        </AssociationConnector>
+        <AssociationConnector Association="PMS_Main_Model.DeclarationPremiumRate">
+          <ConnectorPoint PointX="6.25" PointY="4.2222793579101561" />
+          <ConnectorPoint PointX="6.854166666666667" PointY="4.2222793579101552" />
+          <ConnectorPoint PointX="7.020833333333333" PointY="4.2222793579101561" />
+          <ConnectorPoint PointX="7.791666666666667" PointY="4.2222793579101552" />
+          <ConnectorPoint PointX="7.958333333333333" PointY="4.2222793579101561" />
+          <ConnectorPoint PointX="9.3229166666666661" PointY="4.2222793579101552" />
+          <ConnectorPoint PointX="9.4895833333333339" PointY="4.2222793579101561" />
+          <ConnectorPoint PointX="9.75" PointY="4.2222793579101561" />
+        </AssociationConnector>
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
